@@ -11,5 +11,6 @@ export default createGlobalStyle`
     margin: 0;
     font-family: system-ui;
     background-color: hotpink;
+    color: #c6c6c6;
   }
 `;
