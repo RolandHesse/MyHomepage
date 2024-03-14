@@ -1,9 +1,8 @@
 import { StyledWrapperDiv } from "@/design-system/StyledWrapperDiv";
 import { StyledParagraphText } from "@/design-system/StyledParagraphText";
 import { StyledLink } from "@/design-system/StyledLink";
-import MousePointer from "@/components/MousePointer";
 
-export default function HomePage() {
+export default function HomePage({ mousePosition, onMouseMove }) {
   return (
     <>
       <StyledWrapperDiv>

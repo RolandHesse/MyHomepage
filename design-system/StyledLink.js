@@ -6,4 +6,5 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   list-style-type: none;
   font-size: ${({ $isLogo }) => ($isLogo ? "5rem" : "")};
+  cursor: none;
 `;
