@@ -5,9 +5,9 @@ const StyledDiv = styled.div`
   position: absolute;
   top: ${(props) => props.top}px; /* Use props to access dynamic values */
   left: ${(props) => props.left}px;
-  width: 40px; /* Adjust size as needed */
+  width: 40px;
   height: 40px;
-  border-radius: 50%; /* Correct the typo */
+  border-radius: 50%;
   background-color: rgba(0, 100, 0, 0.5);
   box-shadow: 0 0 20px rgba(0, 100, 0, 0.5);
   pointer-events: none;

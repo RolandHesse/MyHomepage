@@ -18,6 +18,23 @@ export default createGlobalStyle`
   width: 100vw;
   height: 100vh;
 
-  //  background: linear-gradient(to bottom right, #343a40, #6c757d);
+  //  background-color: linear-gradient(to bottom right, #343a40, #6c757d);
   }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -40%;
+    left: -40%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(0, 0, 255, 0.1) 10%, transparent 20%), radial-gradient(circle, rgba(0, 255, 0, 0.5) 0%, transparent 10%);
+    background-repeat: no-repeat;
+    background-size: 300% 300%;
+    background-position: center center;
+    pointer-events: none;
+  }
+
+
 `;

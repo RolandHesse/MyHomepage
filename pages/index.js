@@ -19,7 +19,8 @@ export default function HomePage({ mousePosition, onMouseMove }) {
         </StyledParagraphText>
         <StyledParagraphText>
           Here is a bit more about my journey from philosophy to coding and
-          about what the two have in common (wich might be more than you think).
+          about what the two have in common (which might be more than you
+          think).
         </StyledParagraphText>
         <br />
         <StyledLink href="/projects">
