@@ -1,21 +1,16 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-const StyledDiv = styled.div`
+const OuterStyledDiv = styled.div`
   position: absolute;
   top: ${(props) => props.top}px; /* Use props to access dynamic values */
   left: ${(props) => props.left}px;
-  // width: 40px;
-  // height: 40px;
-  // border-radius: 50%;
-  // background-color: rgba(0, 100, 0, 0.5);
-  // box-shadow: 0 0 20px rgba(0, 100, 0, 0.5);
   width: 80px;
   height: 80px;
   border-radius: 50%;
   background-color: transparent;
   border: solid #c6c6c6 1px;
-  transition: top 0.15s, left 0.15s;
+  transition: top 0.2s, left 0.2s;
   pointer-events: none;
 `;
 
@@ -27,7 +22,7 @@ const InnerStyledDiv = styled.div`
   height: 12px;
   border-radius: 50%;
   background: radial-gradient(circle, #c6c6c6 0%, transparent 80%);
-  transition: top 0.08s, left 0.08s;
+  transition: top 0.02s, left 0.02s;
   pointer-events: none;
 `;
 
@@ -37,19 +32,33 @@ export default function MousePointer({ children }) {
   function handleMouseMove(e) {
     setMousePosition({ x: e.clientX, y: e.clientY });
   }
+
+  //attempt at building a lag into the mouse effect
+  // function handleMouseMove(e) {
+  //   setMousePosition((prevPosition) => ({
+  //     x: prevPosition.x + (e.clientX - prevPosition.x) * 0.2,
+  //     y: prevPosition.y + (e.clientY - prevPosition.y) * 0.2,
+  //   }));
+  // }
+
+  // function handleMouseLeave(e) {
+  //   setMousePosition({ x: e.clientX, y: e.clientY });
+  // }
+
   return (
     <div
       onMouseMove={handleMouseMove}
+      // onMouseLeave={handleMouseLeave}
       style={{
         position: "relative",
         width: "100vw",
         height: "100vh",
       }}
     >
-      <StyledDiv
+      <OuterStyledDiv
         top={mousePosition.y - 40}
         left={mousePosition.x - 40}
-      ></StyledDiv>
+      ></OuterStyledDiv>
       <InnerStyledDiv
         top={mousePosition.y - 6}
         left={mousePosition.x - 6}
