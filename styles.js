@@ -17,8 +17,6 @@ export default createGlobalStyle`
   background-size: 6rem 6rem;
   width: 100vw;
   height: 100vh;
-
-  //  background-color: linear-gradient(to bottom right, #343a40, #6c757d);
   }
 
   body::before {
@@ -36,5 +34,8 @@ export default createGlobalStyle`
     pointer-events: none;
   }
 
+  body::after {
+    content: ${({ $index }) => ($index ? "Dr. Wolf" : "Some other text")};
+}
 
 `;

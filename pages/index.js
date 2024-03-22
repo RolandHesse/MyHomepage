@@ -1,6 +1,7 @@
 import { StyledWrapperDiv } from "@/design-system/StyledWrapperDiv";
 import { StyledParagraphText } from "@/design-system/StyledParagraphText";
 import { StyledLink } from "@/design-system/StyledLink";
+import styled from "styled-components";
 
 export default function HomePage({ mousePosition, onMouseMove }) {
   return (
@@ -27,6 +28,12 @@ export default function HomePage({ mousePosition, onMouseMove }) {
           <StyledParagraphText>Continue to Projects</StyledParagraphText>
         </StyledLink>
       </StyledWrapperDiv>
+      <StyledBackgroundText>Deine Mutter</StyledBackgroundText>
     </>
   );
 }
+
+const StyledBackgroundText = styled.div`
+  color: rgba(0, 255, 122);
+  width: 100%;
+`;

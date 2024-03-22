@@ -33,7 +33,7 @@ export default function MousePointer({ children }) {
     setMousePosition({ x: e.clientX, y: e.clientY });
   }
 
-  //attempt at building a lag into the mouse effect
+  //attempt at building a smoother lag into the mouse effect
   // function handleMouseMove(e) {
   //   setMousePosition((prevPosition) => ({
   //     x: prevPosition.x + (e.clientX - prevPosition.x) * 0.2,
