@@ -67,17 +67,3 @@ export default function MousePointer({ children }) {
     </div>
   );
 }
-
-// const StyledMousePointer = styled.div`
-//   ::before {
-//     content: "";
-//     position: fixed;
-//     top: ${({ mousePosition }) => mousePosition.x}px;
-//     left: ${({ mousePosition }) => mousePosition.y}px;
-//     background-color: hotpink;
-//     background-size: 20px 20px;
-//     background-position: center center;
-//     z-index: -1;
-//     pointer-events: none;
-//   }
-// `;
