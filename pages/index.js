@@ -29,7 +29,7 @@ export default function HomePage({ viewportWidth }) {
         </StyledLink>
       </StyledWrapperDiv>
       <StyledBackgroundText viewportWidth={viewportWidth}>
-        Deine Mutter
+        Home.
       </StyledBackgroundText>
     </>
   );
