@@ -28,7 +28,10 @@ export default function HomePage({ viewportWidth }) {
           <StyledParagraphText>Continue to Projects</StyledParagraphText>
         </StyledLink>
       </StyledWrapperDiv>
-      <StyledBackgroundText viewportWidth={viewportWidth}>
+      <StyledBackgroundText
+        viewportWidth={viewportWidth}
+        backgroundTextDivSize={864}
+      >
         Home.
       </StyledBackgroundText>
     </>

@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { StyledBackgroundText } from "./design-system/StyledBackgroundText";
 
 export default createGlobalStyle`
   *,
@@ -34,12 +33,4 @@ export default createGlobalStyle`
     background-position: center center;
     pointer-events: none;
   }
-
-  @media screen and (max-width: 1044px) {
-    ${StyledBackgroundText} {
-      font-size: calc(12rem * (100vw / 1044)); /* Adjust font size dynamically based on viewport width */
-    }
-  }
-
-
 `;
