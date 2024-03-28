@@ -10,7 +10,7 @@ export default function Slide({ slide, current }) {
   else if (current + 1 === index) classNames += " slide--next";
   return (
     <li
-      ref={slide}
+      // ref={slide}
       className={classNames}
       //   onClick={handleSlideClick}
       //   onMouseMove={this.handleMouseMove}

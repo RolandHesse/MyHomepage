@@ -35,11 +35,13 @@ export default function Slider() {
   function handlePreviousClick() {
     const previous = currentSlide - 1;
     setCurrentSlide(previous < 0 ? slides.length - 1 : previous);
+    console.log("previous: ", previous);
   }
 
   function handleNextClick() {
     const next = currentSlide + 1;
     setCurrentSlide(next === slides.length ? 0 : next);
+    console.log("next: ", next);
   }
 
   const wrapperTransform = {
@@ -49,7 +51,7 @@ export default function Slider() {
   return (
     <div className="slider" aria-labelledby="example-slider">
       <ul className="slider__wrapper" style={wrapperTransform}>
-        <h3 id="example-slider" class="visuallyhidden">
+        <h3 id="example-slider" className="visuallyhidden">
           Example Slider
         </h3>
 

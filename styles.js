@@ -209,7 +209,7 @@ export default createGlobalStyle`
   --y: 0;
   --d: 50;
 
-  opacity: 0;
+  opacity: 1;
   pointer-events: auto;
   user-select: auto;
   

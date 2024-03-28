@@ -12,9 +12,10 @@ export const StyledBackgroundText = styled.div`
     `min(calc(16rem * (${viewportWidth} / ${backgroundTextDivSize})), 16rem)`};
   font-family: ${bodoniModa.style.fontFamily};
   font-weight: 800;
-  letter-spacing: 0.8rem;
+  letter-spacing: 0.8vw;
   padding: 0;
   margin: 0;
   max-width: 100%;
   white-space: nowrap; /* Prevent the text from wrapping */
+  z-index: -1;
 `;
