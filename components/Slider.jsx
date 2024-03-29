@@ -30,7 +30,7 @@ export default function Slider() {
     },
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
 
   function handlePreviousClick() {
     const previous = currentSlide - 1;
@@ -42,6 +42,12 @@ export default function Slider() {
     const next = currentSlide + 1;
     setCurrentSlide(next === slides.length ? 0 : next);
     console.log("next: ", next);
+  }
+
+  function handleSlideClick(index) {
+    if (currentSlide !== index) {
+      setCurrentSlide(index);
+    }
   }
 
   const wrapperTransform = {
@@ -61,7 +67,7 @@ export default function Slider() {
               key={slide.index}
               slide={slide}
               current={currentSlide}
-              //   handleSlideClick={this.handleSlideClick}
+              handleSlideClick={() => handleSlideClick(slide.index)}
             />
           );
         })}

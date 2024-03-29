@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Slide({ slide, current }) {
+export default function Slide({ slide, current, handleSlideClick }) {
   const { src, button, headline, index } = slide;
 
   let classNames = "slide";
@@ -8,11 +8,15 @@ export default function Slide({ slide, current }) {
   if (current === index) classNames += " slide--current";
   else if (current - 1 === index) classNames += " slide--previous";
   else if (current + 1 === index) classNames += " slide--next";
+  else if (current + 1 === slide.length && index === 0)
+    classNames += " slide-next";
+  else classNames += " slide--hidden";
+
   return (
     <li
       // ref={slide}
       className={classNames}
-      //   onClick={handleSlideClick}
+      onClick={handleSlideClick}
       //   onMouseMove={this.handleMouseMove}
       //   onMouseLeave={this.handleMouseLeave}
     >
