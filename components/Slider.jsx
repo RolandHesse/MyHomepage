@@ -30,18 +30,50 @@ export default function Slider() {
     },
   ];
 
+  const [currentSlides, setCurrentSlides] = useState([0, 1, 2]);
+  const [firstSlide, setFirstSlide] = useState(0);
+  const [lastSlide, setLastSlide] = useState(2);
+
+  function handlePreviousClick() {
+    setCurrentSlides(currentSlides.pop());
+    const newFirstSlide = firstSlide - 1;
+    if (newFirstSlide < 0) {
+      setCurrentSlides(currentSlides.push(slides.length - 1));
+      setFirstSlide(slides.legth - 1);
+    } else {
+      setCurrentSlides(currentSlides.unshift(newFirstSlide));
+      setFirstSlide(newFirstSlide);
+    }
+    console.log("currentSlides: ", currentSlides);
+  }
+
+  function handleNextClick() {
+    setCurrentSlides(currentSlides.unshift());
+    const newLastSlide = lastSlide + 1;
+    if (newLastSlide === slides.length) {
+      setCurrentSlides(currentSlides.push(0));
+      setLastSlide(0);
+    } else {
+      setCurrentSlides(currentSlides.push(newLastSlide));
+      setLastSlide(newLastSlide);
+    }
+    console.log("currentSlides: ", currentSlides);
+  }
+
+  const displayedSlides = slides.filter((slide) =>
+    currentSlides.includes(slide.index)
+  );
+
   const [currentSlide, setCurrentSlide] = useState(1);
 
   function handlePreviousClick() {
     const previous = currentSlide - 1;
     setCurrentSlide(previous < 0 ? slides.length - 1 : previous);
-    console.log("previous: ", previous);
   }
 
   function handleNextClick() {
     const next = currentSlide + 1;
     setCurrentSlide(next === slides.length ? 0 : next);
-    console.log("next: ", next);
   }
 
   function handleSlideClick(index) {
@@ -61,12 +93,14 @@ export default function Slider() {
           Example Slider
         </h3>
 
-        {slides.map((slide) => {
+        {displayedSlides.map((slide) => {
           return (
             <Slide
               key={slide.index}
               slide={slide}
+              first={firstSlide}
               current={currentSlide}
+              last={lastSlide}
               handleSlideClick={() => handleSlideClick(slide.index)}
             />
           );
