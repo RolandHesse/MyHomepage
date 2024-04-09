@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Slide from "./Slide";
 import SliderControl from "./SliderControl";
 
@@ -35,38 +35,31 @@ export default function Slider() {
   const [lastSlide, setLastSlide] = useState(2);
 
   function handlePreviousClick() {
-    setCurrentSlides(currentSlides.pop());
+    currentSlides.pop();
     const newFirstSlide = firstSlide - 1;
     if (newFirstSlide < 0) {
-      setCurrentSlides(currentSlides.unshift(slides.length - 1));
+      setCurrentSlides([slides.length - 1, ...currentSlides]);
       setFirstSlide(slides.length - 1);
+      setLastSlide(currentSlides.pop());
     } else {
-      setCurrentSlides(currentSlides.unshift(newFirstSlide));
+      setCurrentSlides([newFirstSlide, ...currentSlides]);
       setFirstSlide(newFirstSlide);
+      setLastSlide(currentSlides.pop());
     }
-    console.log("currentSlides in handlePreviousClick: ", currentSlides);
-    console.log("newFirstSlide: ", newFirstSlide);
-    console.log("firstSlide: ", firstSlide);
   }
 
   function handleNextClick() {
-    console.log("currentSlides in handleNextClick I: ", currentSlides);
     currentSlides.shift();
-    setCurrentSlides(currentSlides);
-    console.log("currentSlides in handleNextClick II: ", currentSlides);
     const newLastSlide = lastSlide + 1;
     if (newLastSlide === slides.length) {
-      currentSlides.push(0);
-      setCurrentSlides(currentSlides);
+      setCurrentSlides([...currentSlides, 0]);
       setLastSlide(0);
+      setFirstSlide(currentSlides.shift());
     } else {
-      currentSlides.push(newLastSlide);
-      setCurrentSlides(currentSlides);
+      setCurrentSlides([...currentSlides, newLastSlide]);
       setLastSlide(newLastSlide);
+      setFirstSlide(currentSlides.shift());
     }
-    console.log("currentSlides in handleNextClick III: ", currentSlides);
-    console.log("newLastSlide: ", newLastSlide);
-    console.log("lastSlide: ", lastSlide);
   }
 
   const displayedSlides = slides.filter((slide) =>
