@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
     <MousePointer>
       <GlobalStyle />
       <Header />
-      <Component {...pageProps} viewportWidth={viewportWidth} />
+      <Component {...pageProps} $viewportWidth={viewportWidth} />
     </MousePointer>
   );
 }

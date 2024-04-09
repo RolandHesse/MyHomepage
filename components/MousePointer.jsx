@@ -3,8 +3,8 @@ import { useState } from "react";
 
 const OuterStyledDiv = styled.div`
   position: absolute;
-  top: ${(props) => props.top}px; /* Use props to access dynamic values */
-  left: ${(props) => props.left}px;
+  top: ${(props) => props.$top}px; /* Use props to access dynamic values */
+  left: ${(props) => props.$left}px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -16,8 +16,8 @@ const OuterStyledDiv = styled.div`
 
 const InnerStyledDiv = styled.div`
   position: absolute;
-  top: ${(props) => props.top}px; /* Use props to access dynamic values */
-  left: ${(props) => props.left}px;
+  top: ${(props) => props.$top}px; /* Use props to access dynamic values */
+  left: ${(props) => props.$left}px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -56,12 +56,12 @@ export default function MousePointer({ children }) {
       }}
     >
       <OuterStyledDiv
-        top={mousePosition.y - 40}
-        left={mousePosition.x - 40}
+        $top={mousePosition.y - 40}
+        $left={mousePosition.x - 40}
       ></OuterStyledDiv>
       <InnerStyledDiv
-        top={mousePosition.y - 6}
-        left={mousePosition.x - 6}
+        $top={mousePosition.y - 6}
+        $left={mousePosition.x - 6}
       ></InnerStyledDiv>
       {children}
     </div>

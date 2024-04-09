@@ -3,7 +3,7 @@ import { StyledParagraphText } from "@/design-system/StyledParagraphText";
 import { StyledLink } from "@/design-system/StyledLink";
 import { StyledBackgroundText } from "@/design-system/StyledBackgroundText";
 
-export default function HomePage({ viewportWidth }) {
+export default function HomePage({ $viewportWidth }) {
   return (
     <>
       <StyledWrapperDiv>
@@ -29,8 +29,8 @@ export default function HomePage({ viewportWidth }) {
         </StyledLink>
       </StyledWrapperDiv>
       <StyledBackgroundText
-        viewportWidth={viewportWidth}
-        backgroundTextDivSize={864}
+        $viewportWidth={$viewportWidth}
+        $backgroundTextDivSize={864}
       >
         Home.
       </StyledBackgroundText>

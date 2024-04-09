@@ -38,26 +38,35 @@ export default function Slider() {
     setCurrentSlides(currentSlides.pop());
     const newFirstSlide = firstSlide - 1;
     if (newFirstSlide < 0) {
-      setCurrentSlides(currentSlides.push(slides.length - 1));
-      setFirstSlide(slides.legth - 1);
+      setCurrentSlides(currentSlides.unshift(slides.length - 1));
+      setFirstSlide(slides.length - 1);
     } else {
       setCurrentSlides(currentSlides.unshift(newFirstSlide));
       setFirstSlide(newFirstSlide);
     }
-    console.log("currentSlides: ", currentSlides);
+    console.log("currentSlides in handlePreviousClick: ", currentSlides);
+    console.log("newFirstSlide: ", newFirstSlide);
+    console.log("firstSlide: ", firstSlide);
   }
 
   function handleNextClick() {
-    setCurrentSlides(currentSlides.unshift());
+    console.log("currentSlides in handleNextClick I: ", currentSlides);
+    currentSlides.shift();
+    setCurrentSlides(currentSlides);
+    console.log("currentSlides in handleNextClick II: ", currentSlides);
     const newLastSlide = lastSlide + 1;
     if (newLastSlide === slides.length) {
-      setCurrentSlides(currentSlides.push(0));
+      currentSlides.push(0);
+      setCurrentSlides(currentSlides);
       setLastSlide(0);
     } else {
-      setCurrentSlides(currentSlides.push(newLastSlide));
+      currentSlides.push(newLastSlide);
+      setCurrentSlides(currentSlides);
       setLastSlide(newLastSlide);
     }
-    console.log("currentSlides: ", currentSlides);
+    console.log("currentSlides in handleNextClick III: ", currentSlides);
+    console.log("newLastSlide: ", newLastSlide);
+    console.log("lastSlide: ", lastSlide);
   }
 
   const displayedSlides = slides.filter((slide) =>
@@ -66,15 +75,15 @@ export default function Slider() {
 
   const [currentSlide, setCurrentSlide] = useState(1);
 
-  function handlePreviousClick() {
-    const previous = currentSlide - 1;
-    setCurrentSlide(previous < 0 ? slides.length - 1 : previous);
-  }
+  // function handlePreviousClick() {
+  //   const previous = currentSlide - 1;
+  //   setCurrentSlide(previous < 0 ? slides.length - 1 : previous);
+  // }
 
-  function handleNextClick() {
-    const next = currentSlide + 1;
-    setCurrentSlide(next === slides.length ? 0 : next);
-  }
+  // function handleNextClick() {
+  //   const next = currentSlide + 1;
+  //   setCurrentSlide(next === slides.length ? 0 : next);
+  // }
 
   function handleSlideClick(index) {
     if (currentSlide !== index) {

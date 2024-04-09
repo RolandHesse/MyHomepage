@@ -3,7 +3,7 @@ import Slider from "@/components/Slider";
 import { StyledWrapperDiv } from "@/design-system/StyledWrapperDiv";
 import { StyledBackgroundText } from "@/design-system/StyledBackgroundText";
 
-export default function Projects({ viewportWidth }) {
+export default function Projects({ $viewportWidth }) {
   return (
     <>
       <StyledWrapperDiv>
@@ -12,8 +12,8 @@ export default function Projects({ viewportWidth }) {
         <Slider />
       </StyledWrapperDiv>
       <StyledBackgroundText
-        viewportWidth={viewportWidth}
-        backgroundTextDivSize={1228}
+        $viewportWidth={$viewportWidth}
+        $backgroundTextDivSize={1228}
       >
         Projects.
       </StyledBackgroundText>

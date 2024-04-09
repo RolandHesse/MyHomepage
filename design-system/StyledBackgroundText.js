@@ -8,8 +8,8 @@ export const StyledBackgroundText = styled.div`
   bottom: 0;
   left: 0;
   color: rgba(255, 255, 255, 0.02);
-  font-size: ${({ viewportWidth, backgroundTextDivSize }) =>
-    `min(calc(16rem * (${viewportWidth} / ${backgroundTextDivSize})), 16rem)`};
+  font-size: ${({ $viewportWidth, $backgroundTextDivSize }) =>
+    `min(calc(16rem * (${$viewportWidth} / ${$backgroundTextDivSize})), 16rem)`};
   font-family: ${bodoniModa.style.fontFamily};
   font-weight: 800;
   letter-spacing: 0.8vw;
