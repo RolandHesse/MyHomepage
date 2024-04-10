@@ -82,6 +82,12 @@ export default function Slider() {
     if (currentSlide !== index) {
       setCurrentSlide(index);
     }
+    if (index === lastSlide) {
+      handleNextClick();
+    }
+    if (index === firstSlide) {
+      handlePreviousClick();
+    }
   }
 
   const wrapperTransform = {
@@ -101,7 +107,6 @@ export default function Slider() {
               key={slide.index}
               slide={slide}
               first={firstSlide}
-              current={currentSlide}
               last={lastSlide}
               handleSlideClick={() => handleSlideClick(slide.index)}
             />

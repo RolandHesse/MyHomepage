@@ -1,12 +1,6 @@
 import Image from "next/image";
 
-export default function Slide({
-  slide,
-  first,
-  current,
-  last,
-  handleSlideClick,
-}) {
+export default function Slide({ slide, first, last, handleSlideClick }) {
   const { src, button, headline, index } = slide;
 
   let classNames = "slide";
