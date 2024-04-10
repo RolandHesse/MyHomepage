@@ -1,6 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Slide from "./Slide";
 import SliderControl from "./SliderControl";
+import {
+  StyledCarouselWrapper,
+  StyledSlideList,
+} from "@/design-system/CarouselStyles";
 
 export default function Slider() {
   const slides = [
@@ -95,12 +99,8 @@ export default function Slider() {
   };
 
   return (
-    <div className="slider" aria-labelledby="example-slider">
-      <ul className="slider__wrapper" style={wrapperTransform}>
-        <h3 id="example-slider" className="visuallyhidden">
-          Example Slider
-        </h3>
-
+    <StyledCarouselWrapper aria-labelledby="example-slider">
+      <StyledSlideList>
         {displayedSlides.map((slide) => {
           return (
             <Slide
@@ -112,7 +112,7 @@ export default function Slider() {
             />
           );
         })}
-      </ul>
+      </StyledSlideList>
       <div className="slider__controls">
         <SliderControl
           type="previous"
@@ -126,6 +126,6 @@ export default function Slider() {
           handleClick={handleNextClick}
         />
       </div>
-    </div>
+    </StyledCarouselWrapper>
   );
 }
