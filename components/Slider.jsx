@@ -4,6 +4,7 @@ import SliderControl from "./SliderControl";
 import {
   StyledCarouselWrapper,
   StyledSlideList,
+  StyledSliderControlsWrapper,
 } from "@/design-system/CarouselStyles";
 
 export default function Slider() {
@@ -70,22 +71,7 @@ export default function Slider() {
     currentSlides.includes(slide.index)
   );
 
-  const [currentSlide, setCurrentSlide] = useState(1);
-
-  // function handlePreviousClick() {
-  //   const previous = currentSlide - 1;
-  //   setCurrentSlide(previous < 0 ? slides.length - 1 : previous);
-  // }
-
-  // function handleNextClick() {
-  //   const next = currentSlide + 1;
-  //   setCurrentSlide(next === slides.length ? 0 : next);
-  // }
-
   function handleSlideClick(index) {
-    if (currentSlide !== index) {
-      setCurrentSlide(index);
-    }
     if (index === lastSlide) {
       handleNextClick();
     }
@@ -93,10 +79,6 @@ export default function Slider() {
       handlePreviousClick();
     }
   }
-
-  const wrapperTransform = {
-    transform: `translateX(-${currentSlide * (100 / slides.length)}%)`,
-  };
 
   return (
     <StyledCarouselWrapper aria-labelledby="example-slider">
@@ -113,7 +95,7 @@ export default function Slider() {
           );
         })}
       </StyledSlideList>
-      <div className="slider__controls">
+      <StyledSliderControlsWrapper>
         <SliderControl
           type="previous"
           title="Go to previous slide"
@@ -125,7 +107,7 @@ export default function Slider() {
           title="Go to next slide"
           handleClick={handleNextClick}
         />
-      </div>
+      </StyledSliderControlsWrapper>
     </StyledCarouselWrapper>
   );
 }
