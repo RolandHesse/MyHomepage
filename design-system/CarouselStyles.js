@@ -19,13 +19,14 @@ export const StyledSlideList = styled.ul`
 
 export const StyledSlide = styled.li`
   list-style: none;
-  border: solid green 2px;
+  border: ${({ $slidePosition }) =>
+    $slidePosition === "first" ? "solid red 2px" : "solid green 2px"};
   width: 100px;
 
   ${({ $slidePosition }) =>
     $slidePosition === "middle" &&
     css`
-      border: solid red 2px;
+      border: solid yellow 2px;
       width: 200px;
     `}
 `;

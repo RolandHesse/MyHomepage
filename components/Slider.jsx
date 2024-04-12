@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Slide from "./Slide";
 import SliderControl from "./SliderControl";
 import {
@@ -38,38 +38,53 @@ export default function Slider() {
   const [currentSlides, setCurrentSlides] = useState([0, 1, 2]);
   const [firstSlide, setFirstSlide] = useState(0);
   const [lastSlide, setLastSlide] = useState(2);
+  // const [displayedSlides, setDisplayedSlides] = useState([]);
 
   function handlePreviousClick() {
-    currentSlides.pop();
+    console.log("currentSlides PC 0", currentSlides);
+    const updatedCurrentSlides = currentSlides.slice(0, 2);
+    console.log("updatedCurrentSlides: ", updatedCurrentSlides);
+    // setCurrentSlides(updatedCurrentSlides);
+    console.log("currentSlides PC I", currentSlides);
     const newFirstSlide = firstSlide - 1;
+    const newLastSlide = updatedCurrentSlides[1];
     if (newFirstSlide < 0) {
-      setCurrentSlides([slides.length - 1, ...currentSlides]);
+      setCurrentSlides([slides.length - 1, ...updatedCurrentSlides]);
       setFirstSlide(slides.length - 1);
-      setLastSlide(currentSlides.pop());
+      setLastSlide(newLastSlide);
     } else {
-      setCurrentSlides([newFirstSlide, ...currentSlides]);
+      setCurrentSlides([newFirstSlide, ...updatedCurrentSlides]);
       setFirstSlide(newFirstSlide);
-      setLastSlide(currentSlides.pop());
+      setLastSlide(newLastSlide);
     }
+    console.log("currentSlides PC II", currentSlides);
   }
 
   function handleNextClick() {
-    currentSlides.shift();
+    const updatedCurrentSlides = currentSlides.slice(-2);
+    const newFirstSlide = updatedCurrentSlides[0];
     const newLastSlide = lastSlide + 1;
     if (newLastSlide === slides.length) {
-      setCurrentSlides([...currentSlides, 0]);
+      setCurrentSlides([...updatedCurrentSlides, 0]);
       setLastSlide(0);
-      setFirstSlide(currentSlides.shift());
+      setFirstSlide(newFirstSlide);
     } else {
-      setCurrentSlides([...currentSlides, newLastSlide]);
+      setCurrentSlides([...updatedCurrentSlides, newLastSlide]);
       setLastSlide(newLastSlide);
-      setFirstSlide(currentSlides.shift());
+      setFirstSlide(newFirstSlide);
     }
   }
 
-  const displayedSlides = slides.filter((slide) =>
-    currentSlides.includes(slide.index)
+  const displayedSlides = currentSlides.map((currentSlide) =>
+    slides.find((slide) => slide.index === currentSlide)
   );
+
+  useEffect(() => {
+    console.log("currentSlides PC III", currentSlides);
+    console.log("firstSlide: ", firstSlide);
+    console.log("lastSlide: ", lastSlide);
+    console.log("displayedSlides: ", displayedSlides);
+  }, [currentSlides]);
 
   function handleSlideClick(index) {
     if (index === lastSlide) {
