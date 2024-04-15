@@ -11,27 +11,38 @@ export default function Slider() {
   const slides = [
     {
       index: 0,
-      headline: "New Fashion Apparel",
-      button: "Shop now",
-      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/fashion.jpg",
+      headline: "My Homepage",
+      description: "The site you are currently seeing. Built with Next.js.",
+      button1: "GitHub",
+      button2: "Preview",
+      src: "/../public/ScreenshotsProjekte/MyHomepage.png",
     },
     {
       index: 1,
-      headline: "In The Wilderness",
-      button: "Book travel",
-      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg",
+      headline: "Palindrome Checker",
+      description:
+        "Second certification project for freecodecamp's JavaScript Algorithms and Data Structures course. HTML, CSS, and JavaScript only.",
+      button1: "GitHub",
+      button2: "Preview",
+      src: "/../public/ScreenshotsProjekte/PalindromeChecker.png",
     },
     {
       index: 2,
       headline: "For Your Current Mood",
-      button: "Listen",
-      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg",
+      description:
+        "First certification project for freecodecamp's JavaScript Algorithms and Data Structures course. HTML, CSS, and JavaScript only.",
+      button1: "GitHub",
+      button2: "Preview",
+      src: "/../public/ScreenshotsProjekte/RomanNumeralConverter.png",
     },
     {
       index: 3,
-      headline: "Focus On The Writing",
-      button: "Get Focused",
-      src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg",
+      headline: "Snipit",
+      description:
+        "Capstone Project for neuefische's Web Dev Bootcamp, built within a team of four. Library: React.js. Framework: Next.js. Includes connection to a MongoDB-backend via a self-written REST-API. Focus on responsiveness and accessbility.",
+      button1: "GitHub",
+      button2: "Preview",
+      src: "/../public/ScreenshotsProjekte/Snipit.png",
     },
   ];
 
@@ -115,6 +126,7 @@ export default function Slider() {
           type="previous"
           title="Go to previous slide"
           handleClick={handlePreviousClick}
+          $isPrevious
         />
 
         <SliderControl

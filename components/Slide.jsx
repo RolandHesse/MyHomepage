@@ -14,7 +14,7 @@ export default function Slide({ slide, first, last, handleSlideClick }) {
         index === first ? "first" : index === last ? "last" : "middle"
       }
     >
-      {/* <Image alt={headline} src={src} width={200} height={200} /> */}
+      <Image alt={headline} src={src} width={200} height={200} />
 
       {/* <article>
         <h2>{headline}</h2>
