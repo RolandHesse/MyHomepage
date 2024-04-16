@@ -8,13 +8,8 @@ export default function Slide({ slide, first, last, handleSlideClick }) {
     index === first ? "first" : index === last ? "last" : "middle";
 
   return (
-    <StyledSlide
-      onClick={handleSlideClick}
-      $slidePosition={
-        index === first ? "first" : index === last ? "last" : "middle"
-      }
-    >
-      <Image alt={headline} src={src} width={200} height={200} />
+    <StyledSlide onClick={handleSlideClick} $slidePosition={slidePosition}>
+      <Image alt={headline} src={src} layout="fill" objectFit="contain" />
 
       {/* <article>
         <h2>{headline}</h2>

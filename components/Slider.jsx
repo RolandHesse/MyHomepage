@@ -28,7 +28,7 @@ export default function Slider() {
     },
     {
       index: 2,
-      headline: "For Your Current Mood",
+      headline: "Roman Numeral Converter",
       description:
         "First certification project for freecodecamp's JavaScript Algorithms and Data Structures course. HTML, CSS, and JavaScript only.",
       button1: "GitHub",

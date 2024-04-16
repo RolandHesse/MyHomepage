@@ -14,25 +14,3 @@ export default function SliderControl({
     </StyledButton>
   );
 }
-
-// .btn {
-//   --size: 3rem;
-
-//   align-items: center;
-//   background-color: transparent;
-//   border: 3px solid transparent;
-//   border-radius: 100%;
-//   display: flex;
-//   height: var(--size);
-//   padding: 0;
-//   width: var(--size);
-
-//   &:focus {
-//     border-color: var(--color-focus);
-//     outline: none;
-//   }
-
-//   &--previous > * {
-//     transform: rotate(180deg);
-//   }
-// }
