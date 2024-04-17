@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Image from "next/image";
 
 export const StyledCarouselWrapper = styled.div`
   width: 80vw;
@@ -24,20 +25,59 @@ export const StyledSlideList = styled.ul`
 
 export const StyledSlide = styled.li`
   list-style: none;
-  height: 100%;
+  height: 50%;
   width: 25%;
   position: relative;
+  //Stlyes for middle-slide
+  ${({ $slidePosition }) =>
+    $slidePosition === "middle" &&
+    css`
+      height: 100%;
+      width: 50%;
+      z-index: 1000;
+      &:hover {
+        transform: scale(1.15);
+      }
+    `}
+  //styles for outer slides
+  ${({ $slidePosition }) =>
+    $slidePosition !== "middle" &&
+    css`
+      background-opacity: 1;
+      opacity: 0.25;
+      &:hover {
+        opacity: 0.5;
+        transform: scale(1.15);
+      }
+    `}
+    //Stlyes for first slide
+    ${({ $slidePosition }) =>
+    $slidePosition === "first" &&
+    css`
+      cursor: w-resize;
+    `}
+
+    //Stlyes for last slide
+    ${({ $slidePosition }) =>
+    $slidePosition === "last" &&
+    css`
+      cursor: e-resize;
+    `}
+ 
+  transform: ${({ $slidePosition }) =>
+    $slidePosition === "first"
+      ? "translateX(10%)"
+      : $slidePosition === "last"
+      ? "translateX(-10%)"
+      : "translate(0, 0)"}
+  
+//auxiliary borders
   border: ${({ $slidePosition }) =>
     $slidePosition === "first"
       ? "solid red 2px"
       : $slidePosition === "middle"
       ? "solid yellow 2px"
       : "solid green 2px"};
-  ${({ $slidePosition }) =>
-    $slidePosition === "middle" &&
-    css`
-      width: 50%;
-    `}
 `;
 
 export const StyledSliderControlsWrapper = styled.div`
@@ -67,4 +107,9 @@ export const StyledButton = styled.button`
     css`
       transform: rotate(180deg);
     `}
+`;
+
+export const StyledImage = styled(Image)`
+  background-color: black;
+  opacity: 1;
 `;
