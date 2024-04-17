@@ -9,7 +9,13 @@ export default function Slide({ slide, first, last, handleSlideClick }) {
 
   return (
     <StyledSlide onClick={handleSlideClick} $slidePosition={slidePosition}>
-      <StyledImage alt={headline} src={src} layout="fill" objectFit="cover" />
+      <StyledImage
+        alt={headline}
+        src={src}
+        layout="fill"
+        objectFit="contain"
+        $slidePosition={slidePosition}
+      />
 
       {/* <article>
         <h2>{headline}</h2>

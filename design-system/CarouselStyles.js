@@ -10,6 +10,7 @@ export const StyledCarouselWrapper = styled.div`
   position: absolute;
   left: 10vw;
   border: solid white 2px;
+  overflow: hidden;
 `;
 
 export const StyledSlideList = styled.ul`
@@ -25,14 +26,16 @@ export const StyledSlideList = styled.ul`
 
 export const StyledSlide = styled.li`
   list-style: none;
-  height: 50%;
   width: 25%;
+  height: auto;
+  aspect-ratio: 1386/1188;
   position: relative;
+  background-color: black;
+
   //Stlyes for middle-slide
   ${({ $slidePosition }) =>
     $slidePosition === "middle" &&
     css`
-      height: 100%;
       width: 50%;
       z-index: 1000;
       &:hover {
@@ -43,13 +46,11 @@ export const StyledSlide = styled.li`
   ${({ $slidePosition }) =>
     $slidePosition !== "middle" &&
     css`
-      background-opacity: 1;
-      opacity: 0.25;
       &:hover {
-        opacity: 0.5;
         transform: scale(1.15);
       }
     `}
+
     //Stlyes for first slide
     ${({ $slidePosition }) =>
     $slidePosition === "first" &&
@@ -84,7 +85,6 @@ export const StyledSliderControlsWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  // position: absolute;
   bottom: 0;
 `;
 
@@ -110,6 +110,12 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledImage = styled(Image)`
-  background-color: black;
-  opacity: 1;
+  ${({ $slidePosition }) =>
+    $slidePosition !== "middle" &&
+    css`
+      opacity: 0.5;
+      &:hover {
+        opacity: 0.75;
+      }
+    `}
 `;
