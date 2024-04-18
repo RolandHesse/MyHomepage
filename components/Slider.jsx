@@ -13,8 +13,9 @@ export default function Slider() {
       index: 0,
       headline: "My Homepage",
       description: "The site you are currently seeing. Built with Next.js.",
-      button1: "GitHub",
-      button2: "Preview",
+      githubURL: "https://github.com/RolandHesse/MyHomepage",
+      previewURL:
+        "https://en.wikipedia.org/wiki/Missing_link_(human_evolution)",
       src: "/../public/ScreenshotsProjekte/MyHomepage.png",
     },
     {
@@ -22,8 +23,10 @@ export default function Slider() {
       headline: "Palindrome Checker",
       description:
         "Second certification project for freecodecamp's JavaScript Algorithms and Data Structures course. HTML, CSS, and JavaScript only.",
-      button1: "GitHub",
-      button2: "Preview",
+      githubURL:
+        "https://github.com/RolandHesse/JavaScript-Algorithms-and-Data-Structures/tree/main/CertificationProject_BuildAPalindromeChecker",
+      previewURL:
+        "https://en.wikipedia.org/wiki/Missing_link_(human_evolution)",
       src: "/../public/ScreenshotsProjekte/PalindromeChecker.png",
     },
     {
@@ -31,8 +34,10 @@ export default function Slider() {
       headline: "Roman Numeral Converter",
       description:
         "First certification project for freecodecamp's JavaScript Algorithms and Data Structures course. HTML, CSS, and JavaScript only.",
-      button1: "GitHub",
-      button2: "Preview",
+      githubURL:
+        "https://github.com/RolandHesse/JavaScript-Algorithms-and-Data-Structures/tree/main/CertificationProject2_BuildARomanNumeralConverter",
+      previewURL:
+        "https://en.wikipedia.org/wiki/Missing_link_(human_evolution)",
       src: "/../public/ScreenshotsProjekte/RomanNumeralConverter.png",
     },
     {
@@ -40,8 +45,9 @@ export default function Slider() {
       headline: "Snipit",
       description:
         "Capstone Project for neuefische's Web Dev Bootcamp, built within a team of four. Library: React.js. Framework: Next.js. Includes connection to a MongoDB-backend via a self-written REST-API. Focus on responsiveness and accessbility.",
-      button1: "GitHub",
-      button2: "Preview",
+      githubURL:
+        "https://github.com/PeetThesing/capstone-project_snippet-manager",
+      previewURL: "https://capstone-project-snippet-manager.vercel.app/",
       src: "/../public/ScreenshotsProjekte/Snipit.png",
     },
   ];

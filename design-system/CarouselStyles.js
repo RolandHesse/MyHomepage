@@ -2,26 +2,25 @@ import styled, { css } from "styled-components";
 import Image from "next/image";
 
 export const StyledCarouselWrapper = styled.div`
-  width: 80vw;
+  width: 100vw;
   height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  left: 10vw;
+  left: 0;
   border: solid white 2px;
-  overflow: hidden;
 `;
 
 export const StyledSlideList = styled.ul`
   border: hotpink solid 2px;
   width: 100%;
   height: 90%;
-  // position: absolute;
   padding: 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  overflow: hidden;
 `;
 
 export const StyledSlide = styled.li`
@@ -42,6 +41,7 @@ export const StyledSlide = styled.li`
         transform: scale(1.15);
       }
     `}
+
   //styles for outer slides
   ${({ $slidePosition }) =>
     $slidePosition !== "middle" &&
@@ -56,6 +56,7 @@ export const StyledSlide = styled.li`
     $slidePosition === "first" &&
     css`
       cursor: w-resize;
+      transform: translateX(10%);
     `}
 
     //Stlyes for last slide
@@ -63,14 +64,8 @@ export const StyledSlide = styled.li`
     $slidePosition === "last" &&
     css`
       cursor: e-resize;
+      transform: translateX(-10%);
     `}
- 
-  transform: ${({ $slidePosition }) =>
-    $slidePosition === "first"
-      ? "translateX(10%)"
-      : $slidePosition === "last"
-      ? "translateX(-10%)"
-      : "translate(0, 0)"}
   
 //auxiliary borders
   border: ${({ $slidePosition }) =>
@@ -79,6 +74,21 @@ export const StyledSlide = styled.li`
       : $slidePosition === "middle"
       ? "solid yellow 2px"
       : "solid green 2px"};
+`;
+
+export const StyledImage = styled(Image)`
+  ${({ $slidePosition }) =>
+    $slidePosition !== "middle" &&
+    css`
+      opacity: 0.5;
+      &:hover {
+        opacity: 0.75;
+      }
+    `}
+`;
+
+export const StyledSlideContent = styled.article`
+  position: relative;
 `;
 
 export const StyledSliderControlsWrapper = styled.div`
@@ -106,16 +116,5 @@ export const StyledButton = styled.button`
     $isPrevious &&
     css`
       transform: rotate(180deg);
-    `}
-`;
-
-export const StyledImage = styled(Image)`
-  ${({ $slidePosition }) =>
-    $slidePosition !== "middle" &&
-    css`
-      opacity: 0.5;
-      &:hover {
-        opacity: 0.75;
-      }
     `}
 `;
