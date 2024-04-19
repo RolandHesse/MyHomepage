@@ -33,6 +33,7 @@ export const StyledSlide = styled.li`
   position: relative;
   background-color: black;
   border-radius: 1rem;
+  transition: transform calc(var(--base-duration) / 2) var(--base-ease);
 
   //Stlyes for middle-slide
   ${({ $slidePosition }) =>
@@ -53,7 +54,7 @@ export const StyledSlide = styled.li`
       transform: translateX(10%);
       &:hover {
         transform: translateX(12%);
-        z-index: 1001;
+        // z-index: 1001;
       }
     `}
 
@@ -65,13 +66,14 @@ export const StyledSlide = styled.li`
       transform: translateX(-10%);
       &:hover {
         transform: translateX(-12%);
-        z-index: 1001;
+        // z-index: 1001;
       }
     `} //auxiliary borders
 `;
 
 export const StyledImage = styled(Image)`
   border-radius: 1rem;
+  transition: opacity calc(var(--base-duration) / 2) var(--base-ease);
   ${({ $slidePosition }) =>
     $slidePosition !== "middle" &&
     css`
@@ -104,6 +106,11 @@ export const StyledSlideContent = styled.article`
   // background-color: rgb(0, 0, 0, 0.85);
   z-index: 100;
   border-radius: 1rem;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+  transition: opacity calc(var(--base-duration) / 2) var(--base-ease);
 `;
 
 export const StyledSlideLink = styled(Link)`
