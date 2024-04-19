@@ -45,14 +45,17 @@ export default function Slide({ slide, first, last, handleSlideClick }) {
         $showSlideContent={showSlideContent}
       />
 
-      {showSlideContent && (
-        <StyledSlideContent>
-          <h2>{headline}</h2>
-          <p>{description}</p>
-          <StyledSlideLink href={githubURL}>GitHub</StyledSlideLink>
-          <StyledSlideLink href={previewURL}>Preview</StyledSlideLink>
-        </StyledSlideContent>
-      )}
+      <StyledSlideContent $showSlideContent={showSlideContent}>
+        <h2>{headline}</h2>
+        <p>{description}</p>
+        <br />
+        <StyledSlideLink href={githubURL} target="_blank">
+          GitHub
+        </StyledSlideLink>
+        <StyledSlideLink href={previewURL} target="_blank">
+          Preview
+        </StyledSlideLink>
+      </StyledSlideContent>
     </StyledSlide>
   );
 }

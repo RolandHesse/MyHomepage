@@ -1,3 +1,5 @@
+//Can be removed imho
+
 import styled from "styled-components";
 
 export const StyledMousePointer = styled.div`

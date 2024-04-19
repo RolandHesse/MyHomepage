@@ -10,11 +10,9 @@ export const StyledCarouselWrapper = styled.div`
   justify-content: space-between;
   position: absolute;
   left: 0;
-  // border: solid white 2px;
 `;
 
 export const StyledSlideList = styled.ul`
-  // border: hotpink solid 2px;
   width: 100%;
   height: 90%;
   padding: 0;
@@ -33,7 +31,8 @@ export const StyledSlide = styled.li`
   position: relative;
   background-color: black;
   border-radius: 1rem;
-  transition: transform calc(var(--base-duration) / 2) var(--base-ease);
+  transition: transform calc(var(--base-duration) / 2) var(--base-ease),
+    width calc(var(--base-duration) / 2) var(--base-ease);
 
   //Stlyes for middle-slide
   ${({ $slidePosition }) =>
@@ -54,7 +53,6 @@ export const StyledSlide = styled.li`
       transform: translateX(10%);
       &:hover {
         transform: translateX(12%);
-        // z-index: 1001;
       }
     `}
 
@@ -66,9 +64,8 @@ export const StyledSlide = styled.li`
       transform: translateX(-10%);
       &:hover {
         transform: translateX(-12%);
-        // z-index: 1001;
       }
-    `} //auxiliary borders
+    `}
 `;
 
 export const StyledImage = styled(Image)`
@@ -82,48 +79,43 @@ export const StyledImage = styled(Image)`
         opacity: 0.75;
       }
     `}
-  ${({ $slidePosition }) =>
-    $slidePosition === "middle" &&
-    css`
-      &:hover {
-        opacity: 0;
-      }
-    `}
+  ${({ $slidePosition }) => $slidePosition === "middle" && css``}
     ${({ $showSlideContent }) =>
     $showSlideContent &&
     css`
-      opacity: 0.25;
+      opacity: 0.5;
     `}
 `;
 
 export const StyledSlideContent = styled.article`
   position: absolute;
-  // top: 50%;
-  // transform: translateY(-50%);
+  bottom: 0;
   width: 100%;
-  height: 100%;
-  padding: 25%;
-  // background-color: rgb(0, 0, 0, 0.85);
+  height: 0;
+  padding: 1rem 2rem;
   z-index: 100;
   border-radius: 1rem;
-  opacity: 0;
-  &:hover {
-    opacity: 1;
-  }
-  transition: opacity calc(var(--base-duration) / 2) var(--base-ease);
+  overflow: hidden;
+  ${({ $showSlideContent }) =>
+    $showSlideContent &&
+    css`
+      height: 15rem;
+      background: linear-gradient(rgb(3, 3, 3, 0), rgb(3, 3, 3, 0.8));
+    `}
+  transition: height calc(var(--base-duration) / 2) var(--base-ease);
 `;
 
 export const StyledSlideLink = styled(Link)`
   background-color: var(--color-primary);
   border: none;
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
   color: white;
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
   padding: 1rem 2.5rem 1.125rem;
-
-  &:focus {
+  margin: 0 0.5rem 0 0;
+  &:hover {
     outline-color: var(--color-focus);
     outline-offset: 2px;
     outline-style: solid;
@@ -152,9 +144,10 @@ export const StyledButton = styled.button`
   height: var(--size);
   padding: 0;
   width: var(--size);
-  &:focus {
-    border-color: var(--color-focus);
-    outline: none;
+  cursor: pointer;
+  &:hover {
+    transform: ${({ $isPrevious }) =>
+      $isPrevious ? "rotate(180deg) scale(1.5)" : "scale(1.5)"};
   }
   ${({ $isPrevious }) =>
     $isPrevious &&

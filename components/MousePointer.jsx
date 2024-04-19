@@ -12,6 +12,7 @@ const OuterStyledDiv = styled.div`
   border: solid #c6c6c6 1px;
   transition: top 0.2s, left 0.2s;
   pointer-events: none;
+  z-index: 1001;
 `;
 
 const InnerStyledDiv = styled.div`
@@ -24,6 +25,7 @@ const InnerStyledDiv = styled.div`
   background: radial-gradient(circle, #c6c6c6 0%, transparent 80%);
   transition: top 0.02s, left 0.02s;
   pointer-events: none;
+  z-index: 1001;
 `;
 
 export default function MousePointer({ children }) {
