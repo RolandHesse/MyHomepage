@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 export const StyledCarouselWrapper = styled.div`
   width: 100vw;
@@ -9,27 +10,29 @@ export const StyledCarouselWrapper = styled.div`
   justify-content: space-between;
   position: absolute;
   left: 0;
-  border: solid white 2px;
+  // border: solid white 2px;
 `;
 
 export const StyledSlideList = styled.ul`
-  border: hotpink solid 2px;
+  // border: hotpink solid 2px;
   width: 100%;
   height: 90%;
   padding: 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  overflow: hidden;
 `;
 
 export const StyledSlide = styled.li`
   list-style: none;
   width: 25%;
   height: auto;
+  max-height: calc(0.9 * 50vh);
+  max-width: calc(0.9 * 50vh * 1386 / 1188);
   aspect-ratio: 1386/1188;
   position: relative;
   background-color: black;
+  border-radius: 1rem;
 
   //Stlyes for middle-slide
   ${({ $slidePosition }) =>
@@ -37,19 +40,10 @@ export const StyledSlide = styled.li`
     css`
       width: 50%;
       z-index: 1000;
-      &:hover {
-        transform: scale(1.15);
-      }
     `}
 
   //styles for outer slides
-  ${({ $slidePosition }) =>
-    $slidePosition !== "middle" &&
-    css`
-      &:hover {
-        transform: scale(1.15);
-      }
-    `}
+  ${({ $slidePosition }) => $slidePosition !== "middle" && css``}
 
     //Stlyes for first slide
     ${({ $slidePosition }) =>
@@ -57,6 +51,10 @@ export const StyledSlide = styled.li`
     css`
       cursor: w-resize;
       transform: translateX(10%);
+      &:hover {
+        transform: translateX(12%);
+        z-index: 1001;
+      }
     `}
 
     //Stlyes for last slide
@@ -65,18 +63,15 @@ export const StyledSlide = styled.li`
     css`
       cursor: e-resize;
       transform: translateX(-10%);
-    `}
-  
-//auxiliary borders
-  border: ${({ $slidePosition }) =>
-    $slidePosition === "first"
-      ? "solid red 2px"
-      : $slidePosition === "middle"
-      ? "solid yellow 2px"
-      : "solid green 2px"};
+      &:hover {
+        transform: translateX(-12%);
+        z-index: 1001;
+      }
+    `} //auxiliary borders
 `;
 
 export const StyledImage = styled(Image)`
+  border-radius: 1rem;
   ${({ $slidePosition }) =>
     $slidePosition !== "middle" &&
     css`
@@ -85,10 +80,52 @@ export const StyledImage = styled(Image)`
         opacity: 0.75;
       }
     `}
+  ${({ $slidePosition }) =>
+    $slidePosition === "middle" &&
+    css`
+      &:hover {
+        opacity: 0;
+      }
+    `}
+    ${({ $showSlideContent }) =>
+    $showSlideContent &&
+    css`
+      opacity: 0.25;
+    `}
 `;
 
 export const StyledSlideContent = styled.article`
-  position: relative;
+  position: absolute;
+  // top: 50%;
+  // transform: translateY(-50%);
+  width: 100%;
+  height: 100%;
+  padding: 25%;
+  // background-color: rgb(0, 0, 0, 0.85);
+  z-index: 100;
+  border-radius: 1rem;
+`;
+
+export const StyledSlideLink = styled(Link)`
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 0.125rem;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1rem 2.5rem 1.125rem;
+
+  &:focus {
+    outline-color: var(--color-focus);
+    outline-offset: 2px;
+    outline-style: solid;
+    outline-width: 3px;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
 `;
 
 export const StyledSliderControlsWrapper = styled.div`
