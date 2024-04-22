@@ -96,11 +96,16 @@ export default function Slider() {
     slides.find((slide) => slide.index === currentSlide)
   );
 
+  const hiddenSlides = slides.filter(
+    (slide) => !currentSlides.includes(slide.index)
+  );
+
   useEffect(() => {
     console.log("currentSlides PC III", currentSlides);
     console.log("firstSlide: ", firstSlide);
     console.log("lastSlide: ", lastSlide);
     console.log("displayedSlides: ", displayedSlides);
+    console.log("hiddenSlides: ", hiddenSlides);
   }, [currentSlides]);
 
   function handleSlideClick(index) {
@@ -125,6 +130,9 @@ export default function Slider() {
               handleSlideClick={() => handleSlideClick(slide.index)}
             />
           );
+        })}
+        {hiddenSlides.map((slide) => {
+          return <Slide key={slide.index} slide={slide} $isHiddenSlide />;
         })}
       </StyledSlideList>
       <StyledSliderControlsWrapper>

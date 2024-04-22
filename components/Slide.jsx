@@ -5,12 +5,16 @@ import {
   StyledSlideLink,
 } from "@/design-system/CarouselStyles";
 
-import Link from "next/link";
 import { useState } from "react";
 
-export default function Slide({ slide, first, last, handleSlideClick }) {
-  const { src, button, headline, index, description, previewURL, githubURL } =
-    slide;
+export default function Slide({
+  slide,
+  first,
+  last,
+  handleSlideClick,
+  $isHiddenSlide,
+}) {
+  const { src, headline, index, description, previewURL, githubURL } = slide;
 
   const [showSlideContent, setShowSlideContent] = useState(false);
 
@@ -33,6 +37,7 @@ export default function Slide({ slide, first, last, handleSlideClick }) {
     <StyledSlide
       onClick={handleSlideClick}
       $slidePosition={slidePosition}
+      $isHiddenSlide={$isHiddenSlide}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

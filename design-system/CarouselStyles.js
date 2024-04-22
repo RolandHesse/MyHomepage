@@ -23,6 +23,7 @@ export const StyledSlideList = styled.ul`
 
 export const StyledSlide = styled.li`
   list-style: none;
+  display: ${({ $isHiddenSlide }) => $isHiddenSlide && "none"};
   width: 25%;
   height: auto;
   max-height: calc(0.9 * 50vh);
@@ -32,7 +33,8 @@ export const StyledSlide = styled.li`
   background-color: black;
   border-radius: 1rem;
   transition: transform calc(var(--base-duration) / 2) var(--base-ease),
-    width calc(var(--base-duration) / 2) var(--base-ease);
+    width calc(var(--base-duration) / 2) var(--base-ease),
+    display calc(var(--base-duration) / 2) var(--base-ease);
 
   //Stlyes for middle-slide
   ${({ $slidePosition }) =>
