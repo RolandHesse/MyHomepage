@@ -7,7 +7,7 @@ export default createGlobalStyle`
   --color-secondary: #101118;
   --color-accent: #1D1F2F;
   --color-focus: #6D64F7;
-  --base-duration: 1600ms;
+  --base-duration: 5000ms;
   --base-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
 }
 

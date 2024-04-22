@@ -23,7 +23,6 @@ export const StyledSlideList = styled.ul`
 
 export const StyledSlide = styled.li`
   list-style: none;
-  display: ${({ $isHiddenSlide }) => $isHiddenSlide && "none"};
   width: 25%;
   height: auto;
   max-height: calc(0.9 * 50vh);
@@ -34,7 +33,17 @@ export const StyledSlide = styled.li`
   border-radius: 1rem;
   transition: transform calc(var(--base-duration) / 2) var(--base-ease),
     width calc(var(--base-duration) / 2) var(--base-ease),
-    display calc(var(--base-duration) / 2) var(--base-ease);
+    height calc(var(--base-duration) / 2) var(--base-ease);
+
+  //Styles for hidden slides
+  ${({ $isHiddenSlide }) =>
+    $isHiddenSlide &&
+    css`
+      width: 10px;
+      height: 10px;
+      transform: translateX(-50vw);
+      z-index: -1000;
+    `}
 
   //Stlyes for middle-slide
   ${({ $slidePosition }) =>
@@ -78,7 +87,7 @@ export const StyledImage = styled(Image)`
     css`
       opacity: 0.5;
       &:hover {
-        opacity: 0.75;
+        opacity: 0.9;
       }
     `}
   ${({ $slidePosition }) => $slidePosition === "middle" && css``}

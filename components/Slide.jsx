@@ -18,8 +18,13 @@ export default function Slide({
 
   const [showSlideContent, setShowSlideContent] = useState(false);
 
-  const slidePosition =
-    index === first ? "first" : index === last ? "last" : "middle";
+  const slidePosition = $isHiddenSlide
+    ? "hidden"
+    : index === first
+    ? "first"
+    : index === last
+    ? "last"
+    : "middle";
 
   function handleMouseEnter() {
     if (slidePosition === "middle") {
