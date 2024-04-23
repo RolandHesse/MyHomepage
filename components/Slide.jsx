@@ -46,6 +46,9 @@ export default function Slide({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      <p style={{ color: "hotpink", zIndex: 2000, padding: 50 }}>
+        {slidePosition}
+      </p>
       <StyledImage
         alt={headline}
         src={src}
@@ -54,7 +57,6 @@ export default function Slide({
         $slidePosition={slidePosition}
         $showSlideContent={showSlideContent}
       />
-
       <StyledSlideContent $showSlideContent={showSlideContent}>
         <h2>{headline}</h2>
         <p>{description}</p>

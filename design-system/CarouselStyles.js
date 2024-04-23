@@ -31,18 +31,18 @@ export const StyledSlide = styled.li`
   position: relative;
   background-color: black;
   border-radius: 1rem;
-  transition: transform calc(var(--base-duration) / 2) var(--base-ease),
-    width calc(var(--base-duration) / 2) var(--base-ease),
-    height calc(var(--base-duration) / 2) var(--base-ease);
+  transition: transform calc(var(--base-duration) / 2),
+    width calc(var(--base-duration) / 2), height calc(var(--base-duration) / 2);
 
   //Styles for hidden slides
   ${({ $isHiddenSlide }) =>
     $isHiddenSlide &&
     css`
-      width: 10px;
-      height: 10px;
-      transform: translateX(-50vw);
-      z-index: -1000;
+      width: 0%;
+      // opacity: 1;
+      left: -50%;
+      right: -50%;
+      z-index: 1001;
     `}
 
   //Stlyes for middle-slide
@@ -81,7 +81,7 @@ export const StyledSlide = styled.li`
 
 export const StyledImage = styled(Image)`
   border-radius: 1rem;
-  transition: opacity calc(var(--base-duration) / 2) var(--base-ease);
+  transition: opacity calc(var(--base-duration) / 2);
   ${({ $slidePosition }) =>
     $slidePosition !== "middle" &&
     css`
@@ -113,7 +113,7 @@ export const StyledSlideContent = styled.article`
       height: 15rem;
       background: linear-gradient(rgb(3, 3, 3, 0), rgb(3, 3, 3, 0.8));
     `}
-  transition: height calc(var(--base-duration) / 2) var(--base-ease);
+  transition: height calc(var(--base-duration) / 2);
 `;
 
 export const StyledSlideLink = styled(Link)`

@@ -100,6 +100,8 @@ export default function Slider() {
     (slide) => !currentSlides.includes(slide.index)
   );
 
+  const orderedSlides = [...displayedSlides, ...hiddenSlides];
+
   useEffect(() => {
     console.log("currentSlides PC III", currentSlides);
     console.log("firstSlide: ", firstSlide);
@@ -120,7 +122,7 @@ export default function Slider() {
   return (
     <StyledCarouselWrapper aria-labelledby="example-slider">
       <StyledSlideList>
-        {displayedSlides.map((slide) => {
+        {orderedSlides.map((slide) => {
           return (
             <Slide
               key={slide.index}
@@ -128,11 +130,9 @@ export default function Slider() {
               first={firstSlide}
               last={lastSlide}
               handleSlideClick={() => handleSlideClick(slide.index)}
+              $isHiddenSlide={!currentSlides.includes(slide.index)}
             />
           );
-        })}
-        {hiddenSlides.map((slide) => {
-          return <Slide key={slide.index} slide={slide} $isHiddenSlide />;
         })}
       </StyledSlideList>
       <StyledSliderControlsWrapper>
