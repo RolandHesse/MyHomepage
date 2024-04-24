@@ -8,6 +8,7 @@ export default function Projects({ $viewportWidth }) {
     <>
       <StyledWrapperDiv>
         <h1>Hello from the projects side</h1>
+        <p>Random change.</p>
         <Slider />
       </StyledWrapperDiv>
       <StyledBackgroundText
