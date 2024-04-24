@@ -27,7 +27,7 @@ export default function Slider() {
         "https://github.com/RolandHesse/JavaScript-Algorithms-and-Data-Structures/tree/main/CertificationProject_BuildAPalindromeChecker",
       previewURL:
         "https://en.wikipedia.org/wiki/Missing_link_(human_evolution)",
-      src: "/../public/ScreenshotsProjekte/PalindromeChecker.png",
+      src: "/ScreenshotsProjekte/PalindromeChecker.png",
     },
     {
       index: 2,
