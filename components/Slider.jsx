@@ -55,14 +55,9 @@ export default function Slider() {
   const [currentSlides, setCurrentSlides] = useState([0, 1, 2]);
   const [firstSlide, setFirstSlide] = useState(0);
   const [lastSlide, setLastSlide] = useState(2);
-  // const [displayedSlides, setDisplayedSlides] = useState([]);
 
   function handlePreviousClick() {
-    console.log("currentSlides PC 0", currentSlides);
     const updatedCurrentSlides = currentSlides.slice(0, 2);
-    console.log("updatedCurrentSlides: ", updatedCurrentSlides);
-    // setCurrentSlides(updatedCurrentSlides);
-    console.log("currentSlides PC I", currentSlides);
     const newFirstSlide = firstSlide - 1;
     const newLastSlide = updatedCurrentSlides[1];
     if (newFirstSlide < 0) {
@@ -74,7 +69,6 @@ export default function Slider() {
       setFirstSlide(newFirstSlide);
       setLastSlide(newLastSlide);
     }
-    console.log("currentSlides PC II", currentSlides);
   }
 
   function handleNextClick() {
@@ -101,14 +95,6 @@ export default function Slider() {
   );
 
   const orderedSlides = [...displayedSlides, ...hiddenSlides];
-
-  useEffect(() => {
-    console.log("currentSlides PC III", currentSlides);
-    console.log("firstSlide: ", firstSlide);
-    console.log("lastSlide: ", lastSlide);
-    console.log("displayedSlides: ", displayedSlides);
-    console.log("hiddenSlides: ", hiddenSlides);
-  }, [currentSlides]);
 
   function handleSlideClick(index) {
     if (index === lastSlide) {

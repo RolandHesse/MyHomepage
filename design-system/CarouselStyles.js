@@ -31,18 +31,18 @@ export const StyledSlide = styled.li`
   position: relative;
   background-color: black;
   border-radius: 1rem;
-  transition: transform calc(var(--base-duration) / 2),
-    width calc(var(--base-duration) / 2), height calc(var(--base-duration) / 2);
+  transition: transform calc(var(--base-duration) / 2) var(--base-ease),
+    width calc(var(--base-duration) / 2) var(--base-ease),
+    height calc(var(--base-duration) / 2) var(--base-ease);
 
   //Styles for hidden slides
   ${({ $isHiddenSlide }) =>
     $isHiddenSlide &&
     css`
       width: 0%;
-      // opacity: 1;
-      left: -50%;
-      right: -50%;
-      z-index: 1001;
+
+      transform: translate(-50vw);
+      z-index: 999;
     `}
 
   //Stlyes for middle-slide
@@ -81,7 +81,7 @@ export const StyledSlide = styled.li`
 
 export const StyledImage = styled(Image)`
   border-radius: 1rem;
-  transition: opacity calc(var(--base-duration) / 2);
+  transition: opacity calc(var(--base-duration) / 2) var(--base-ease);
   ${({ $slidePosition }) =>
     $slidePosition !== "middle" &&
     css`
@@ -113,7 +113,7 @@ export const StyledSlideContent = styled.article`
       height: 15rem;
       background: linear-gradient(rgb(3, 3, 3, 0), rgb(3, 3, 3, 0.8));
     `}
-  transition: height calc(var(--base-duration) / 2);
+  transition: height calc(var(--base-duration) / 2) var(--base-ease);
 `;
 
 export const StyledSlideLink = styled(Link)`
@@ -165,4 +165,9 @@ export const StyledButton = styled.button`
     css`
       transform: rotate(180deg);
     `}
+`;
+
+export const StyledSVG = styled.svg`
+  fill: var(--color-primary);
+  width: 100%;
 `;
