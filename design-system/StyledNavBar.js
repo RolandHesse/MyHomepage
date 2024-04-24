@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledNavBar = styled.nav`
-  width: 80%;
+  width: min(80%, 1050px);
   margin: 0 auto;
   padding: 2.5rem 0;
   display: flex;

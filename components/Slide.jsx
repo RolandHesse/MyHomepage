@@ -1,48 +1,70 @@
-import Image from "next/image";
+import {
+  StyledImage,
+  StyledSlide,
+  StyledSlideContent,
+  StyledSlideLink,
+} from "@/design-system/CarouselStyles";
 
-export default function Slide({ slide, first, last, handleSlideClick }) {
-  const { src, button, headline, index } = slide;
+import { useState } from "react";
 
-  let classNames = "slide";
+export default function Slide({
+  slide,
+  first,
+  last,
+  handleSlideClick,
+  $isHiddenSlide,
+}) {
+  const { src, headline, index, description, previewURL, githubURL } = slide;
 
-  if (index === first) {
-    classNames += " slide--previous";
-  } else if (index === last) {
-    classNames += " slide--next";
-  } else {
-    classNames += " slide--current";
+  const [showSlideContent, setShowSlideContent] = useState(false);
+
+  const slidePosition = $isHiddenSlide
+    ? "hidden"
+    : index === first
+    ? "first"
+    : index === last
+    ? "last"
+    : "middle";
+
+  function handleMouseEnter() {
+    if (slidePosition === "middle") {
+      setShowSlideContent(true);
+    }
   }
 
-  // if (current === index) classNames += " slide--current";
-  // else if (current - 1 === index) classNames += " slide--previous";
-  // else if (current + 1 === index) classNames += " slide--next";
-  // else if (current + 1 === slide.length && index === 0)
-  //   classNames += " slide-next";
-  // else classNames += " slide--hidden";
+  function handleMouseLeave() {
+    if (slidePosition === "middle") {
+      setShowSlideContent(false);
+    }
+  }
 
   return (
-    <li
-      // ref={slide}
-      className={classNames}
+    <StyledSlide
       onClick={handleSlideClick}
-      //   onMouseMove={this.handleMouseMove}
-      //   onMouseLeave={this.handleMouseLeave}
+      $slidePosition={slidePosition}
+      $isHiddenSlide={$isHiddenSlide}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="slide__image-wrapper">
-        <Image
-          //   className="slide__image"
-          alt={headline}
-          src={src}
-          width={800}
-          height={800}
-          //   onLoad={imageLoaded}
-        />
-      </div>
-
-      <article className="slide__content">
-        <h2 className="slide__headline">{headline}</h2>
-        <button className="slide__action btn">{button}</button>
-      </article>
-    </li>
+      <StyledImage
+        alt={headline}
+        src={src}
+        layout="fill"
+        objectFit="contain"
+        $slidePosition={slidePosition}
+        $showSlideContent={showSlideContent}
+      />
+      <StyledSlideContent $showSlideContent={showSlideContent}>
+        <h2>{headline}</h2>
+        <p>{description}</p>
+        <br />
+        <StyledSlideLink href={githubURL} target="_blank">
+          GitHub
+        </StyledSlideLink>
+        <StyledSlideLink href={previewURL} target="_blank">
+          Preview
+        </StyledSlideLink>
+      </StyledSlideContent>
+    </StyledSlide>
   );
 }
