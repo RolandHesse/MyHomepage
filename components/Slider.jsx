@@ -16,7 +16,7 @@ export default function Slider() {
       githubURL: "https://github.com/RolandHesse/MyHomepage",
       previewURL:
         "https://en.wikipedia.org/wiki/Missing_link_(human_evolution)",
-      src: "/../public/ScreenshotsProjekte/MyHomepage.png",
+      src: "/ScreenshotsProjekte/MyHomepage.png",
     },
     {
       index: 1,
@@ -38,7 +38,7 @@ export default function Slider() {
         "https://github.com/RolandHesse/JavaScript-Algorithms-and-Data-Structures/tree/main/CertificationProject2_BuildARomanNumeralConverter",
       previewURL:
         "https://en.wikipedia.org/wiki/Missing_link_(human_evolution)",
-      src: "/../public/ScreenshotsProjekte/RomanNumeralConverter.png",
+      src: "/ScreenshotsProjekte/RomanNumeralConverter.png",
     },
     {
       index: 3,
@@ -48,7 +48,7 @@ export default function Slider() {
       githubURL:
         "https://github.com/PeetThesing/capstone-project_snippet-manager",
       previewURL: "https://capstone-project-snippet-manager.vercel.app/",
-      src: "/../public/ScreenshotsProjekte/Snipit.png",
+      src: "/ScreenshotsProjekte/Snipit.png",
     },
   ];
 
